@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <link rel="stylesheet" type="text/css" href="../css/doz.css" />
+      <script src="../js/jquery-3.3.1.min.js"> </script>
+    </head>
+  <body>
+    <div style="font-size:30px;"> <b> شروع را بزنید</b></div></br>
+      <div class="text">
+          <p>توضیحات بازی</p>
+        
+       </div>
+      <p id="op1" class="op1"></p>
+      <div class="marj" >
+          <div  >
+              <label class="pad1" >نام بازیکن دوم</label>
+              <label class="pad" >نام بازیکن اول </label>
+          </div></br>
+        <input class="n1" id="name" type="tex" placeholder="نام خود را وارد کنید" >
+        <input class="n1" id="name2" type="text"  placeholder="نام خود را وارد کنید" >
+      </div>
+      <div>
+          <button  onclick="setnam()" >ثبت نام</button>
+      <div>
+    <div class="rt">
+           <div class="col1"> <table class="mytab" id="op" >
+              <tr>
+                <td class="remov" id="1" onclick="myFunction(1)"></td>
+                <td class="remov"  id="2" onclick="myFunction(2)"></td>
+                <td class="remov"  id="3" onclick="myFunction(3)"></td>
+              </tr>
+              <tr>
+                <td class="remov"  id="4" onclick="myFunction(4)"></td>
+                <td class="remov"  id="5" onclick="myFunction(5)"></td>
+                <td class="remov"  id="6" onclick="myFunction(6)"></td>
+              </tr>
+              <tr>
+                <td class="remov"  id="7" onclick="myFunction(7)"></td>
+                <td  class="remov" id="8" onclick="myFunction(8)"></td>
+                <td class="remov"  id="9" onclick="myFunction(9)"></td>
+              </tr>
+            </table>
+          </div>  
+    <div class="col">
+      <div class="marj2">
+      <button id="start" onclick="start()">شروع</button>
+      <button id="ne" onclick="newGame()">بازی جدید</button>
+    </div></br>
+    <div  >
+    <button class="11" id="user1" onclick="changer('name')" >بازیکن اول</button>
+    <button class="12" id="user2" onclick="changer('name2')" >بازیکن دوم</button>
+  </div>
+  </div>
+  </div>
+  </div> 
+  </div>
+
+    <script>
+      var user;
+      var isSecoundTime = true;
+      var isSecoundTime2 = true;
+      var isStart = false;
+      var player1;
+      var player2;
+      var text = "";
+      var t = document.querySelector(".text");
+      var secondplay;
+      var firstplay;
+      var finish;
+      var text;
+      
+      function setnam(){
+        player1 = document.getElementById("name").value;
+        player2 = document.getElementById("name2").value;
+         firstplay=document.getElementById("user1").innerHTML=player1;
+         secondplay=document.getElementById("user2").innerHTML=player2;
+       
+         if(document.getElementById("name").value ){
+         var t = document.querySelector(".text");
+        var pElm0 = document.createElement("p");
+        pElm0.innerHTML = " نام وارد شد بازیکن را انتخاب کنید";
+        t.appendChild(pElm0);}
+      }
+      function start() {
+        var t = document.querySelector(".text");
+        var pElm01 = document.createElement("p");
+        pElm01.innerHTML = "در ابتدا نام خود را وارد کنید ثبت نام را بزنید";
+        t.appendChild(pElm01);
+        // text += "بازیکن را انتخاب کنید" + "<br>";
+        // document.getElementById("s2").innerHTML = text;}
+        isStart = true;
+    }
+       function newGame() {
+        // document.getElementById("1").innerHTML = "";
+        // document.getElementById("2").innerHTML = "";
+        // document.getElementById("3").innerHTML = "";
+        // document.getElementById("4").innerHTML = "";
+        // document.getElementById("5").innerHTML = "";
+        // document.getElementById("6").innerHTML = "";
+        // document.getElementById("7").innerHTML = "";
+        // document.getElementById("8").innerHTML = "";
+        // document.getElementById("9").innerHTML = "";
+        document.getElementById("name").value="";
+        document.getElementById("name2").value="";
+        document.getElementById("user1").innerHTML="";
+        document.getElementById("user2").innerHTML="";
+        document.getElementById("op").style.opacity = 1;
+        document.getElementById("op1").innerHTML = "";
+        document.getElementById("user1").style.background =  "rgb(0, 198, 169)";
+        document.getElementById("user2").style.background =  "rgb(0, 198, 169)";
+        var t = document.querySelector(".text");
+        t.innerHTML = "بازی شروع شد";
+        isSecoundTime2 = true;
+        isSecoundTime = true;
+        start()
+        myFunction()
+      }
+
+      function changer(i) {
+        user = document.getElementById(i).value;
+        
+        if (user==player1 && isStart) {
+          document.getElementById("user1").style.background = "rgb(168, 255, 242)";
+          document.getElementById("user2").style.background = "gray";
+          isSecoundTime2 = true;
+          text +="بازی کن"+user+"<br>";
+          $(".text").html(text);
+          /// var t = document.querySelector(".text");
+          /// var pElm1 = document.createElement("p");
+          /// pElm1.innerHTML = user+" " +"بازی کن";
+          /// t.appendChild(pElm1);
+
+          //   text +=" بازی کن"+user+"<br>";
+          // document.getElementById("s2").innerHTML=text;
+        } else if (user==player2 && isStart) {
+          document.getElementById("user2").style.background = "rgb(168, 255, 242)";
+          document.getElementById("user1").style.background = "gray";
+          isSecoundTime = true;
+          text +="بازی کن"+user+"<br>";
+          $(".text").html(text);
+          /// var t = document.querySelector(".text");
+          /// var pElm2 = document.createElement("p");
+          /// pElm2.innerHTML = user+" " +"بازی کن";
+          /// t.appendChild(pElm2);
+          /// pElm2.style.color="blue";
+        } else {
+          /// var t = document.querySelector(".text");
+          /// var pElm3 = document.createElement("p");
+          // pElm3.innerHTML = "شروع را کلیک کنید ";
+          /// t.appendChild(pElm3);
+        }
+      }
+      function myFunction(a) {
+       
+        if (document.getElementById(a).innerHTML == "" ) {
+          if (user == player1 && isSecoundTime && isStart) {
+            document.getElementById(a).innerHTML =
+              '<img src="../pic/no-stopping (1).png" alt="k" width="50" height="50" />';
+            isSecoundTime = false;
+            
+          } else if (user == player2 && isSecoundTime2 && isStart) {
+            document.getElementById(a).innerHTML =
+              '<img src="../pic/traffic-signal (1).png" alt="k" width="50" height="50" />';
+            isSecoundTime2 = false;
+          } else  {
+            /// var t = document.querySelector(".text");
+            /// var pElm4 = document.createElement("p");
+            ///  pElm4.innerHTML = user+" "+"نوبتتان را بازی کرذدید";
+            /// t.appendChild(pElm4);
+            text +="نوبتتان را بازی کرذدید" + "<br>";
+          $(".text").html(text);
+            // text += "نوبتتان را بازی کرذدید" + "<br>";
+            // document.getElementById("s2").innerHTML = text;
+          }
+        } else if(user == player1 && isSecoundTime){
+          /// var t = document.querySelector(".text");
+          /// var pElm5 = document.createElement("p");
+          /// pElm5.innerHTML = user+" "+"در خانه های خالی کلیک کنید";
+          /// t.appendChild(pElm5);
+          text +=  user+" "+"در خانه های خالی کلیک کنید"+ "<br>" ;
+          $(".text").html(text);
+         
+          }else if(user == player2 && isSecoundTime2 ){
+          /// var t = document.querySelector(".text");
+          /// var pElm51 = document.createElement("p");
+          /// pElm51.innerHTML =user+" "+ "در خانه های خالی کلیک کنید";
+          /// t.appendChild(pElm51);
+          text +=  user+" "+"در خانه های خالی کلیک کنید"+ "<br>" ;
+          $(".text").html(text);
+          }
+          // text += "در خانه های خالی کلیک کنید" + "<br>";
+          // document.getElementById("s2").innerHTML = text;
+        
+        winer();
+      }
+      function winer() {
+        var kh1 = document.getElementById("1").innerHTML;
+        var kh2 = document.getElementById("2").innerHTML;
+        var kh3 = document.getElementById("3").innerHTML;
+        var kh4 = document.getElementById("4").innerHTML;
+        var kh5 = document.getElementById("5").innerHTML;
+        var kh6 = document.getElementById("6").innerHTML;
+        var kh7 = document.getElementById("7").innerHTML;
+        var kh8 = document.getElementById("8").innerHTML;
+        var kh9 = document.getElementById("9").innerHTML;
+
+          if (kh1 === kh2 &&kh2 === kh3 &&kh1 === kh3 &&kh1 != "" &&isStart ) 
+          {
+           var finish = document.querySelector(".op1");
+            var pElm6 = document.createElement("p");
+            pElm6.innerHTML = user + " " +" برنده شدید";
+            pElm6.style.fontSize = "50px";
+            finish.appendChild(pElm6);
+            text +=  user+" "+"در خانه های خالی کلیک کنید"+ "<br>" ;
+          $(".text").html(text);
+            animation();
+            setTimeout(function() {
+              document.getElementById("op1").innerHTML = "بازی تمام شد";
+            }, 3000);
+          } else if (kh4 === kh5 &&kh4 === kh6 && kh5 === kh6 && kh4 != "" && isStart) 
+          {
+            var finish = document.querySelector(".op1");
+            var pElm7 = document.createElement("p");
+            pElm7.innerHTML = user+" "+" برنده شدید";
+            pElm7.style.fontSize = "50px";
+            finish.appendChild(pElm7);
+            animation();
+            setTimeout(function() {
+              document.getElementById("op1").innerHTML = "بازی تمام شد";
+            }, 3000);
+          } else if (kh7 === kh8 &&kh9 === kh7 && kh8 === kh9 && kh8 != "" &&isStart)
+           { var finish = document.querySelector(".op1");
+             var pElm8 = document.createElement("p");
+            pElm8.innerHTML =user + " " + " برنده شدید";
+            finish.appendChild(pElm8);
+            pElm8.style.fontSize = "50px";
+            animation();
+            setTimeout(function() {
+              document.getElementById("op1").innerHTML = "بازی تمام شد";
+            }, 3000);
+          } else if ( kh1 === kh5 && kh9 === kh1 &&  kh5 === kh9 && kh9 != "" && isStart ) 
+          { var finish = document.querySelector(".op1");
+            var pElm9 = document.createElement("p");
+            pElm9.innerHTML =user+" "+ " برنده شدید";
+            finish.appendChild(pElm9);
+            pElm9.style.fontSize = "50px";
+            animation();
+            setTimeout(function() {
+              document.getElementById("op1").innerHTML = "بازی تمام شد";
+            },3000);
+          } else if ( kh7 === kh5 && kh7 === kh3 && kh5 === kh3 && kh7 != "" &&  isStart) 
+          { var finish = document.querySelector(".op1");
+            var pElm10 = document.createElement("p");
+            pElm10.innerHTML = user +" "+" برنده شدید";
+            pElm10.style.fontSize = "50px";
+            finisht.appendChild(pElm10);
+            animation();
+            setTimeout(function() {
+              document.getElementById("op1").innerHTML = "بازی تمام شد";
+            }, 3000);
+          } else if ( kh1 === kh4 && kh7 === kh4 && kh1 === kh7 && kh7 != "" && isStart)
+          { var finish = document.querySelector(".op1");
+            var pElm11 = document.createElement("p");
+            pElm11.innerHTML = user+" "+" برنده شدید";
+            pElm11.style.fontSize = "50px";
+            finish.appendChild(pElm11);
+            animation();
+            setTimeout(function() {
+              document.getElementById("op1").innerHTML = "بازی تمام شد";
+            }, 3000);
+          } else if (kh1 === kh5 && kh5 === kh8 && kh1 === kh9 &&  kh9 != "" && isStart) 
+          { var finish = document.querySelector(".op1");
+            var pElm12 = document.createElement("p");
+            pElm12.innerHTML = user+" "+" برنده شدید";
+            finisht.appendChild(pElm12);
+            animation();
+            setTimeout(function() {
+              document.getElementById("op1").innerHTML = "بازی تمام شد";
+            }, 3000);
+          } else if (kh3 === kh6 && kh9 === kh3 && kh6 === kh9 && kh9 != "" && isStart ) 
+          { var finish = document.querySelector(".op1");
+            var pElm12 = document.createElement("p");
+            pElm12.innerHTML = user+" "+" برنده شدید";
+            finish.appendChild(pElm12);
+            pElm12.style.fontSize = "50px";
+            animation();
+            setTimeout(function() {
+              document.getElementById("op1").innerHTML = "بازی تمام شد";
+            },3000);
+          }
+
+        if( kh1 != "" && kh2 != "" && kh3 != "" && kh4 != "" &&kh5 != "" && kh6 != "" && kh7 != "" && kh8 != "" && kh9 != "" )
+         { 
+          var finish = document.querySelector(".op1");
+          var pElm21 = document.createElement("p");
+          pElm21.style.fontSize = "50px";
+          pElm21.innerHTML = "هیچ کدام برنده نشدید ";
+          finish.appendChild(pElm21);
+          // alert("هیچ کدام برنده نشدید");
+        }
+      }
+
+      function animation() {
+       
+        document.getElementById("user1").classList.add("btntrans");
+        document.getElementById("op").style.opacity = 0.1;
+        
+      }
+      function animation1() {
+        
+        document.getElementById("user2").classList.add("btntrans");
+        document.getElementById("op").style.opacity = 0.5;
+      
+      }$(document).ready(function(){
+  $("#start").click(function(){
+    $(".text").slideDown(5000);
+  });
+  $("#ne").click(function(){
+    $(".text").slideDown(5000);
+  });
+   $("#ne").click(function(){
+        $(".remov").empty();
+   });
+       
+
+
+});
+   
+  
+    </script>
+  </body>
+</html>

@@ -1,0 +1,162 @@
+      body {
+        background-image: url("css/tic-tac-toe-backgrounds-wallpapers.png");
+        background-size: 100%;
+        background-color: white;
+        text-align: center;
+       font-size: 17px;
+        background-repeat: no-repeat;
+       color: black;
+        font-family: tahoma !important;
+       
+      }
+      .marj{
+        margin-top:10px;
+        margin-right: 20px;
+        
+      }
+      .marj2{
+        position: absolute;
+        margin-top:-170px;
+        
+
+      }
+      .text{
+        display: none;
+       flex-direction: column;
+       width:300px;
+       height: 500px;
+       background-color: rgb(238, 238, 238);
+       overflow:scroll;
+       text-align: center;
+       border: 1px solid #5B5B5B;
+       margin-top: 20px;
+       position: absolute;
+
+      }
+      .op1{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        
+        font-size:50px;
+        margin-left: 500px;;
+        color: black;
+        font-weight: bold;
+        margin-top: 20px;
+      }
+      button:hover{
+        border: 5px solid rgb(12, 9, 9);
+        background-color: #0ae8c9;
+        color: white;
+      }
+      .rt{
+       
+        display: flex;
+        flex-direction: row;
+       margin-top: 0;
+       position: relative;
+       
+       
+      }
+      
+      .mytab{
+          
+        display: flex;
+        flex-direction: column;
+        margin-top: 0;
+        position: relative;
+        margin-left: 340px;
+        padding: 10px;
+           
+      }
+      .col1{
+        display: flex;
+        flex-direction: column;
+        margin-left: 110px;
+        margin-top: 40px;
+        position: relative;
+       
+
+      }
+      .col{
+        display: flex;
+        flex-direction: column;
+        margin-left: 90px;
+        margin-top: 20px;
+      }
+      .pad{
+        
+        padding-right:70px;
+        text-align: center;
+
+      }
+      .pad1{
+        padding-left:35px;
+        text-align: center;
+
+      }
+       table {
+        border-collapse: collapse;
+        width: 320px;
+        height: 300px;
+        outline: white solid 40px;
+        margin-top: 10px;
+        
+      }
+      
+      table td {
+        padding:19px;
+        border: 10px solid #930803; 
+        width: 65px;
+        height: 60px;
+      }
+      table tr:first-child td {
+        border-top: 0;
+      }
+      table tr td:first-child {
+        border-left: 0;
+      }
+      table tr:last-child td {
+        border-bottom: 0;
+      }
+      table tr td:last-child {
+        border-right: 0;
+      }
+
+      button {
+        background-color:#00C6A9;
+        width: 120px;
+        height: 50px;
+        color: black;
+        border: 5px solid #5B5B5B;
+        font-size: 15px;
+        margin: 20px;
+        margin-top: 20px;
+        border-radius: 10%;
+      }
+      @keyframes example {
+        50% {
+          transform: rotate(180deg);
+        }
+        75% {
+          transform: top=50px;
+        }
+      }
+      .btntrans {
+        animation-name: example;
+        animation-duration: 4s;
+        background-color: #C3C0B7;
+        width: 120px;
+        height: 50px;
+        color: white;
+        border: 5px solid #930803;
+        font-size: 15px;
+        margin: 20px;
+        margin-top: 50px;
+      }
+      .n1{
+        width: 110;
+        padding: 10px;
+        margin-left: 20px;
+        direction: rtl;
+      }
